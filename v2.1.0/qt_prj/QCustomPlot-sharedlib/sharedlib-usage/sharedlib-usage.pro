@@ -22,13 +22,13 @@ TEMPLATE = app
 DEFINES += QCUSTOMPLOT_USE_LIBRARY
 
 # Link with debug version of qcustomplot if compiling in debug mode, else with release library:
-CONFIG(debug, release|debug) {
+CONFIG(release, release|debug) {
   win32:QCPLIB = qcustomplotd2
   else: QCPLIB = qcustomplotd
 } else {
   win32:QCPLIB = qcustomplot2
   else: QCPLIB = qcustomplot
 }
-LIBS += -L./ -l$$QCPLIB
+LIBS += -L$$PWD -l$$QCPLIB
 
 SOURCES += main.cpp
